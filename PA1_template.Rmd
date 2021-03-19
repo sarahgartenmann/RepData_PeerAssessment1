@@ -2,7 +2,7 @@
 title: "Coursera: Reproducible Research, Week 2 Assignment"
 author: "Sarah Gartenmann"
 date: "16 March 2021"
-output: html_document
+output: md_document
 ---
 
 ```{r setup, include=FALSE}
@@ -67,7 +67,7 @@ data$date <- ymd(as.character(data$date))
 For the part of the assignment, the total number of steps taken per day was calculated. The results were illustrated using a histogram. Additionally, the mean and median of the total number of steps taken each day was reproted. 
 To this end, the data from "data" was first grouped together by the date on which they were collected using the `group_by()` function, and subsequently the total number of steps taken per day was calculated using the `sum()` function (all NA value were removed from this calculation). A new dataframe "data2" was generated containing the the total number of steps taken on each day. The `mean()` and `median()`functions were used to calculate the mean and median, respectively (alternatively, these values could have been calculated wth the `summary()` function). Using `geom_hist()` from `ggplot()`, the data in "data2" was plotted to generate "DailySteps".  The daily mean and median number of steps taken are 9354 and 10395 steps, respectively. 
 
-```{r Question2, warning=FALSE}
+```{r Dailysteps, warning=FALSE}
 
 # processing the data
 data2 <- data %>%
@@ -103,7 +103,7 @@ For the part of the assignment, a time series plot (i.e. type = "l") showing the
 The interval containing the maximum number of steps was calculated by finding the maximum value in the "mean" column of "data3" using the `max()`function. 
 The graph "IntervalSteps" was generated using `geom_freqpol()` from `ggplot()`. The 5-minute interval number 835 containied the highest mean number of steps (206 steps).  
 
-```{r Question3, warning=FALSE}
+```{r Intervalsteps, warning=FALSE}
 
 # processing the data
 data3 <- data %>%
@@ -138,7 +138,7 @@ The second aim of this exercise was to fill in all missing values in the dataset
 Using `geom_hist()` from `ggplot()`, the data in "data_imputtedNA" was plotted to generate "DailySteps_noNA". The mean and median values of daily steps is now slightly higher since the missing values have been imputted than before; 10766 daily steps for both mean and median as opposed to the previous 9354 and 10395 steps, respectively.   
 
 
-```{r Imputing Missing Values, warning=FALSE}
+```{r MissingData, warning=FALSE}
 
 # subset data where there are missing values (NAs)
 # we have 2304 rows with NAs in the original dataset
@@ -207,7 +207,7 @@ Using the `filter()` function, the dataframe "data_imputtedNA3" was split up acc
 A panel plot containing a time-series plot was generated using the `geom_line()` and `facet_grid()` functions from `ggplot()` showing the average number of steps taken for each interval, averaged across all weekdays or weekend days called "DayPlot".  
 From the graph we can see that the mean and median number of steps taken on weekdays is slightly lower than on weekends. 
 
-```{r Weekday Weekend Differences}
+```{r WeekdayWeekend}
 
 # make sure langauge setting is in English!
   # Sys.setlocale("LC_ALL", "English")
