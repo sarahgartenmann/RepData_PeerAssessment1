@@ -247,13 +247,6 @@ weekendweekday <- rbind(weekday2, weekend2)
 summary(weekday2)
 summary(weekend2)
 
-meanvalues <- data.frame(X = c("weekday", "weekend"), Z = c(35.611, 42.366))
-medianvalues <- data.frame(X = c("weekday", "weekend"), Y = c(25.803, 32.340))
-
-annot <- data.frame( 
-  label = c("mean (35.611) and \n median (25.803) number of steps", "mean (42.366) and \n median (32.340) number of steps"),
-  day = c("weekday", "weekend"))
-
 # plotting
 DayPlot <- ggplot(weekendweekday, aes(x = interval, y = mean)) +
   geom_freqpoly(stat = "identity") +
@@ -263,11 +256,7 @@ DayPlot <- ggplot(weekendweekday, aes(x = interval, y = mean)) +
         panel.background = element_rect(fill = "white"),
         panel.border = element_rect(colour = "black", fill=NA, size=0.5), 
         legend.position = "none") +
-  facet_grid(day ~.) + 
-  geom_hline(data = meanvalues, aes(yintercept = Z, color = "red"), linetype = "dashed") +
-  geom_hline(data = medianvalues, aes(yintercept = Y, color = "blue"), linetype = "dashed") +
-  geom_text(data = annot, size = 3,
-            mapping = aes(x = 240, y = 70, label = label))
+  facet_grid(day ~.)
   
 DayPlot
 
