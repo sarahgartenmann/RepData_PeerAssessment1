@@ -78,6 +78,9 @@ data2 <- data %>%
 mean1 <- mean(data2$dailysteps)
 median1 <- median(data2$dailysteps)
 
+mean1
+median1
+
 # plotting the data
 DailySteps <- ggplot(data2, aes(x = date, y = dailysteps)) +
   geom_histogram(stat = "identity") + 
@@ -112,6 +115,7 @@ data3 <- data %>%
 
 #identifying the interval with the maximum step number
 maxinterval = data3$interval[data3$mean == max(data3$mean)]
+maxinterval
 
 # plotting the data
 IntervalSteps <- ggplot(data3, aes(x = interval, y = mean)) +
@@ -183,6 +187,9 @@ data_imputtedNA2 <- data_imputtedNA %>%
 
 mean2 <- mean(data_imputtedNA2$dailysteps)
 median2 <- median(data_imputtedNA2$dailysteps)
+
+mean2
+median2
 
 # plotting the data
 DailySteps_noNA <- ggplot(data_imputtedNA2, aes(x = date, y = dailysteps)) +

@@ -99,6 +99,14 @@ median number of steps taken are 9354 and 10395 steps, respectively.
     mean1 <- mean(data2$dailysteps)
     median1 <- median(data2$dailysteps)
 
+    mean1
+
+    ## [1] 9354.23
+
+    median1
+
+    ## [1] 10395
+
     # plotting the data
     DailySteps <- ggplot(data2, aes(x = date, y = dailysteps)) +
       geom_histogram(stat = "identity") + 
@@ -142,6 +150,9 @@ containied the highest mean number of steps (206 steps).
 
     #identifying the interval with the maximum step number
     maxinterval = data3$interval[data3$mean == max(data3$mean)]
+    maxinterval
+
+    ## [1] 835
 
     # plotting the data
     IntervalSteps <- ggplot(data3, aes(x = interval, y = mean)) +
@@ -244,6 +255,14 @@ opposed to the previous 9354 and 10395 steps, respectively.
 
     mean2 <- mean(data_imputtedNA2$dailysteps)
     median2 <- median(data_imputtedNA2$dailysteps)
+
+    mean2
+
+    ## [1] 10766.19
+
+    median2
+
+    ## [1] 10766.19
 
     # plotting the data
     DailySteps_noNA <- ggplot(data_imputtedNA2, aes(x = date, y = dailysteps)) +
